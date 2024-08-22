@@ -14,7 +14,7 @@ import { ApiResponse } from '@/types/ApiResponse';
 import { Button } from '@/components/ui/button';
 
 
-const page = () => {
+const Page = () => {
 
     const [questions, setQuestions]= useState<string[]>([])
     const params= useParams<{username: string}>();
@@ -110,4 +110,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

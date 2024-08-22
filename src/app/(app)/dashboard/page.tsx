@@ -14,7 +14,7 @@ import { useSession } from 'next-auth/react';
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 
-const page = () => {
+const Page = () => {
 
   const [messages, setMessages]= useState<Message []>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -117,7 +117,7 @@ const page = () => {
 
   const {username}= session.user;
 
-  const baseUrl= `${window.location.protocol}://${window.location.host}`;
+  const baseUrl= `${window.location.protocol}//${window.location.host}`;
   const profileUrl= `${baseUrl}/u/${username}`;
 
   const copyToClipboard=()=>{
@@ -187,4 +187,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

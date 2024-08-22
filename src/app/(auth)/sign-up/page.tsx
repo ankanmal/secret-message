@@ -22,7 +22,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import axios,{AxiosError} from 'axios'
 import { Loader2 } from "lucide-react";
-const page = () => {
+const Page = () => {
     
     const [username, setUsername]=useState('');
     const [usernameMessage, setUsernameMessage]= useState('');
@@ -188,4 +188,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
