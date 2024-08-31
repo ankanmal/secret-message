@@ -32,7 +32,7 @@ export async function GET(request: Request) {
 
     const userId = new mongoose.Types.ObjectId(_user._id);
 
-    console.log(userId);
+    
 
 
     try {
@@ -44,20 +44,22 @@ export async function GET(request: Request) {
             { $group: { _id: '$_id', messages: { $push: '$messages' } } },
         ]).exec();
 
-        console.log("from api/get-messages", user[0].messages);
+        
+        //console.log("from api/get-messages", user[0].messages);
 
-
-        if (!user || user.length === 0) {
+        if (!user || user.length === 0 ) {
             return Response.json(
                 {
                     success: false,
-                    message: 'User Not Found'
+                    message: 'No Messages'
                 },
                 {
                     status: 404
                 }
             )
         }
+
+        
 
         return Response.json(
             {
@@ -70,6 +72,7 @@ export async function GET(request: Request) {
         )
 
     } catch (error) {
+        
         console.log("Error Getting Messages", error);
         return Response.json(
             {
