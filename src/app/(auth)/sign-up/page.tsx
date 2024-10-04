@@ -23,7 +23,7 @@ import { useRouter } from "next/navigation";
 import axios,{AxiosError} from 'axios'
 import { Loader2 } from "lucide-react";
 const Page = () => {
-    
+
     const [username, setUsername]=useState('');
     const [usernameMessage, setUsernameMessage]= useState('');
     const [isCheckingUsername, setIsCheckingUsername]=useState(false);
@@ -53,7 +53,7 @@ const Page = () => {
                    const response= await axios.get<ApiResponse>(`/api/check-username-unique?username=${username}`);
                    console.log("use effect resposne",response);// check what is it returning and remove it later
                    setUsernameMessage(response.data.message)
-                    
+
                 } catch (error) {
                     const axiosError= error as AxiosError<ApiResponse>;
                     setUsernameMessage(axiosError.response?.data.message ?? 'Error Checking Username')
@@ -79,7 +79,7 @@ const Page = () => {
 
             router.replace(`/verify/${username}`);
             setIsSubmitting(false);
-            
+
         } catch (error) {
             console.error('Error During Signup',error);
 
@@ -94,7 +94,7 @@ const Page = () => {
             })
 
             setIsSubmitting(false);
-            
+
         }
 
     }
@@ -102,6 +102,7 @@ const Page = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-800">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+
             <div  className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
                     Join Secret Message
@@ -110,8 +111,8 @@ const Page = () => {
                     SignUp to Start your anon adventure
                 </p>
 
-            </div>    
-            
+            </div>
+
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -172,7 +173,7 @@ const Page = () => {
                     }
                  </Button>
                 </form>
-            </Form>    
+            </Form>
 
             <div className="text-center mt-4">
                 <p>
